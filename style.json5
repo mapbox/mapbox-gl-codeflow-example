@@ -1,0 +1,37 @@
+/**
+ * This is a JSON5 version of a style: unlike a normal JSON
+ * style, it can have comments, single quotes, no quotes (where appropriate)
+ * and trailing commas. See json5.org for the whole documentation.
+ */
+{
+  version: 7,
+  // This is the basic style
+  name: 'Basic',
+  // Here are our constants
+  constants: {},
+  // Here are the sources
+  sources: {
+    mapbox: {
+      type: 'vector',
+      url: 'mapbox://mapbox.mapbox-streets-v6'
+    }
+  },
+  sprite: '',
+  glyphs: '',
+  layers: [{
+    id: 'background',
+    type: 'background',
+    paint: {
+      'background-color': '#ff0'
+    }
+  }, {
+    id: 'water',
+    type: 'fill',
+    source: 'mapbox',
+    'source-layer': 'water',
+    paint: {
+      'fill-color': '#f0f',
+      'fill-opacity': 0.8
+    }
+  }]
+}

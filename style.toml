@@ -1,0 +1,26 @@
+# This is a TOML version of a style.
+# See https://github.com/toml-lang/toml for full details
+version = 7
+# This is the basic style
+name = 'Basic'
+# Here are our constants
+constants = {}
+sprite = ''
+glyphs = ''
+# Here are the sources
+[sources.mapbox]
+  type = 'vector'
+  url = 'mapbox://mapbox.mapbox-streets-v6'
+[[layers]]
+  id = 'background'
+  type = 'background'
+  [layers.paint]
+    background-color = '#f0f'
+[[layers]]
+  id = 'water'
+  type = 'fill'
+  source = 'mapbox'
+  source-layer = 'water'
+  [layers.paint]
+    fill-color = '#fff'
+    fill-opacity = 1
