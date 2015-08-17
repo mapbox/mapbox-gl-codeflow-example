@@ -22,7 +22,7 @@ basic utilities:
 
 First, clone this git repository:
 
-    git clone git@github.com:mapbox/mapbox-gl-codeflow-example.git
+    git clone https://github.com/mapbox/mapbox-gl-codeflow-example.git
     cd mapbox-gl-codeflow-example
 
 And then install the dependencies:
