@@ -13,7 +13,9 @@ basic utilities:
   previewing the style
 * Support for [JSON](http://json.org/), [JSON5](http://json5.org/),
   [YAML](http://yaml.org/), and [TOML](https://github.com/toml-lang/toml)
-  files as input
+  files as input. You can also specify an executable JavaScript file with a `.js` extension
+  and hashbang and the file will be run and its output piped into the style
+  definition.
 * Live-reloading when the style is changed
 
 ## Install
