@@ -4,6 +4,7 @@ var gulp = require('gulp'),
   json5 = require('gulp-json5'),
   yaml = require('gulp-yaml'),
   toml = require('gulp-toml'),
+  through2 = require('through2'),
   exec = require('gulp-exec'),
   rename = require('gulp-rename'),
   connect = require('gulp-connect');
@@ -46,7 +47,13 @@ gulp.task('compile', function() {
         .pipe(gulp.dest('app'));
     case '.js':
       return gulp.src(options.style)
-        .pipe(exec('<%= file.path %>', { pipeStdout: true }))
+        .pipe(exec('<%= file.path %>', { pipeStdout: true, continueOnError: true }))
+        .pipe(through2.obj(function(file, enc, cb) {
+          if (!file.exec.stdout && file.exec.stderr) {
+            file.contents = new Buffer(JSON.stringify({ error: file.exec.stderr }));
+          }
+          cb(null, file);
+        }))
         .pipe(rename({ basename: 'style', extname: '.json' }))
         .pipe(gulp.dest('app'));
     case '.toml':

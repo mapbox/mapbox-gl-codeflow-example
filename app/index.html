@@ -39,6 +39,13 @@ mapboxgl.util.getJSON('style.json', function(err, stylesheet) {
     return;
   }
 
+  if (stylesheet.error) {
+      errors.style.display = 'block';
+      errors.appendChild(document.createElement('h2')).innerHTML = 'Script Evaluation Error';
+      errors.appendChild(document.createElement('pre')).innerHTML = stylesheet.error;
+      return;
+  }
+
   var valid = validate(stylesheet);
   if (valid.length) {
       errors.style.display = 'block';
