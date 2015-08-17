@@ -17,9 +17,12 @@
   "author": "Tom MacWright",
   "license": "ISC",
   "devDependencies": {
+    "chroma-js": "^1.1.1",
     "gulp": "^3.9.0",
     "gulp-connect": "^2.2.0",
+    "gulp-exec": "^2.1.1",
     "gulp-json5": "0.0.2",
+    "gulp-rename": "^1.2.2",
     "gulp-yaml": "^0.2.4",
     "mapbox-gl-style-spec": "^7.4.1",
     "minimist": "^1.1.3"

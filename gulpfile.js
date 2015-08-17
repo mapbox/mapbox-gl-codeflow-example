@@ -4,6 +4,8 @@ var gulp = require('gulp'),
   json5 = require('gulp-json5'),
   yaml = require('gulp-yaml'),
   toml = require('gulp-toml'),
+  exec = require('gulp-exec'),
+  rename = require('gulp-rename'),
   connect = require('gulp-connect');
 
 var path = require('path'),
@@ -41,6 +43,11 @@ gulp.task('compile', function() {
     case '.yml':
       return gulp.src(options.style)
         .pipe(yaml({ space: 4 }))
+        .pipe(gulp.dest('app'));
+    case '.js':
+      return gulp.src(options.style)
+        .pipe(exec('<%= file.path %>', { pipeStdout: true }))
+        .pipe(rename({ basename: 'style', extname: '.json' }))
         .pipe(gulp.dest('app'));
     case '.toml':
       return gulp.src(options.style)
